@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  tels: string[] = ['9991009980', '9993265580', '9991526620'];
+  tels: string[] = [];
   newTel: string = '';
   deleteTel: string = '';
   updateTel: string = '';
@@ -21,7 +21,9 @@ export class AppComponent {
 
   onAdd() {
     if (this.tels.length < 3) {
-      this.tels.push(this.newTel);
+      if (this.newTel !== '') {
+        this.tels.push(this.newTel);
+      }
     }
     this.newTel = '';
     this.modalService.dismissAll();
